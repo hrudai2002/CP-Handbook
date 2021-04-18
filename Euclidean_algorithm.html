@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+     <link rel="stylesheet" href="algorithms.css">
+    <title>Arrays</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+  CP HandBook</div>
+  <label for="btn" class="icon">
+          <span class="fa fa-bars"></span>
+        </label>
+        <input type="checkbox" id="btn">
+        <ul>
+  <li><a href="index.html">Home</a></li>
+  <li>
+            <label for="btn-1" class="show">Data Structures</label>
+            <a href="#">Data Structurs</a>
+            <input type="checkbox" id="btn-1">
+            <ul>
+  <li><a href="Arrays.html">Arrays</a></li>
+  <li><a href="LinkedList.html">Linked Lists</a></li>
+  <li><a href="Stacks.html">Stacks</a></li>
+   <li><a href="queues.html">Queues</a></li>
+  <li><a href="Trees.html">Trees</a></li> 
+  <li><a href="Heaps.html">Heaps</a></li>
+   <li><a href="#">Graphs</a></li>
+   
+  </ul>
+  </li>
+  <li>
+            <label for="btn-2" class="show">Algorithms</label>
+            <a href="#">Algorithms</a>
+            <input type="checkbox" id="btn-2">
+            <ul>
+                <li><a href="Seive_of_eratosthenes.html">Prime</a></li>
+                <li><a href="Integer_factorization.html">Factorization</a></li>
+                <li><a href="Euclidean_algorithm.html">Euclid's</a></li>
+                <li><a href="#">Fibonacci</a></li>
+                <li><a href="#">Modular</a></li>
+  
+  </ul>
+  </li>
+  <!-- <li><a href="To_do_list.html">To-Do List</a></li> -->
+  <li><a href="#">About</a></li>
+  </ul>
+  </nav>  
+<div class = "matter">
+    <h1>Euclidean algorithm for computing the greatest common divisor</h1>
+    <p>
+        <br>
+        Given two non-negative integers a and b, we have to find their GCD (greatest common divisor), i.e. the largest number which is a divisor of both a and b. It's commonly denoted by gcd(a,b). Mathematically it is defined as:
+        <br><br>gcd(a,b)=maxk=1…∞ : k∣a ∧k ∣bk.
+        <br><br>
+        When one of the numbers is zero, while the other is non-zero, their greatest common divisor, by definition, is the second number. When both numbers are zero, their greatest common divisor is undefined (it can be any arbitrarily large number), but we can define it to be zero. Which gives us a simple rule: if one of the numbers is zero, the greatest common divisor is the other number.<br><br>
+The Euclidean algorithm, discussed below, allows to find the greatest common divisor of two numbers a and b in O(logmin(a,b)).<br><br>
+The algorithm was first described in Euclid's "Elements" (circa 300 BC), but it is possible that the algorithm has even earlier origins.
+    </p>
+    <br><br>
+    <h2>Implementation</h2>
+    <br>
+    <pre><code>
+        int gcd (int a, int b) {
+            if (b == 0)
+                return a;
+            else
+                return gcd (b, a % b);
+        }
+    </code></pre>
+    <br>
+    <pre><code>
+        int gcd (int a, int b) {
+            return b ? gcd (b, a % b) : a;
+        }
+    </code></pre>
+    <br>
+    <h3>Non-recursive </h3><br>
+    <pre><code>
+        int gcd (int a, int b) {
+            while (b) {
+                a %= b;
+                swap(a, b);
+            }
+            return a;
+        }
+    </code></pre><br><br>
+    <h2>Least common multiple</h2><br>
+    <pre><code>
+        int lcm (int a, int b) {
+            return a / gcd(a, b) * b;
+        }
+    </code></pre>
+</body>
+</html>

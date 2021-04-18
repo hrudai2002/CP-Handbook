@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+:root {
+	font: calc(50% + .5vw + .5vh + 1vmin)/1.5 ".SFNSDisplay-Regular", sans-serif;
+}
+
+.matter {
+	
+    padding: 40px; background: white; color: black; 
+	
+}
+
+nav{
+	background: #1b1b1b;
+  }
+  nav:after{
+	content: '';
+	clear: both;
+	display: table;
+  }
+  nav .logo{
+	float: left;
+	color: white;
+	font-size: 27px;
+	font-weight: 600;
+	line-height: 70px;
+	padding-left: 60px;
+  }
+  nav ul{
+	float: right;
+	margin-right: 40px;
+	list-style: none;
+	position: relative;
+  }
+  nav ul li{
+	/* float: left; */
+	display: inline-block;
+	background: #1b1b1b;
+	margin: 0 5px;
+  }
+  nav ul li a{
+	color: white;
+	line-height: 70px;
+	text-decoration: none;
+	font-size: 18px;
+	padding: 8px 15px;
+  }
+  nav ul li a:hover{
+	color: cyan;
+	border-radius: 5px;
+	box-shadow:  0 0 5px #33ffff,
+				 0 0 10px #66ffff;
+  }
+  nav ul ul li a:hover{
+	box-shadow: none;
+  }
+  nav ul ul{
+	position: absolute;
+	top: 90px;
+	border-top: 3px solid cyan;
+	opacity: 0;
+	visibility: hidden;
+	transition: top .3s;
+  }
+  nav ul ul ul{
+	border-top: none;
+  }
+  nav ul li:hover > ul{
+	top: 70px;
+	opacity: 1;
+	visibility: visible;
+  }
+  nav ul ul li{
+	position: relative;
+	margin: 0px;
+	width: 150px;
+	float: none;
+	display: list-item;
+	border-bottom: 1px solid rgba(0,0,0,0.3);
+  }
+  nav ul ul li a{
+	line-height: 50px;
+  }
+  nav ul ul ul li{
+	position: relative;
+	top: -60px;
+	left: 150px;
+  }
+  .show,.icon,input{
+	display: none;
+  }
+  .fa-plus{
+	font-size: 15px;
+	margin-left: 40px;
+  }
+  @media all and (max-width: 968px) {
+	nav ul{
+	  margin-right: 0px;
+	  float: left;
+	}
+	nav .logo{
+	  padding-left: 30px;
+	  width: 100%;
+	}
+	.show + a, ul{
+	  display: none;
+	}
+	nav ul li,nav ul ul li{
+	  display: block;
+	  width: 100%;
+	}
+	nav ul li a:hover{
+	  box-shadow: none;
+	}
+	.show{
+	  display: block;
+	  color: white;
+	  font-size: 18px;
+	  padding: 0 20px;
+	  line-height: 70px;
+	  cursor: pointer;
+	}
+	.show:hover{
+	  color: cyan;
+	}
+	.icon{
+	  display: block;
+	  color: white;
+	  position: absolute;
+	  top: 0;
+	  right: 40px;
+	  line-height: 70px;
+	  cursor: pointer;
+	  font-size: 25px;
+	}
+	nav ul ul{
+	  top: 70px;
+	  border-top: 0px;
+	  float: none;
+	  position: static;
+	  display: none;
+	  opacity: 1;
+	  visibility: visible;
+	}
+	nav ul ul a{
+	  padding-left: 40px;
+	}
+	nav ul ul ul a{
+	  padding-left: 80px;
+	}
+	nav ul ul ul li{
+	  position: static;
+	}
+	[id^=btn]:checked + ul{
+	  display: block;
+	}
+	nav ul ul li{
+	  border-bottom: 0px;
+	}
+	span.cancel:before{
+	  content: '\f00d';
+	}
+  }
+
+.button{
+    background-color: black;
+    
+}
+h1,p{
+    color: black;
+}
+
+pre {
+	margin: 0;
+	font: 1rem/1.5 'Roboto Mono', monospace;
+  }
+  
+  code {
+	-webkit-user-select: all;
+	user-select: all;
+	display: block;
+	padding: 20px;
+	border: 2px dashed #c9baa7;
+	color: #31808c;
+	background-color: #f5f4ef;
+	text-align: left;
+	font-family: inherit;
+	overflow: auto;
+  }
+  
+  code:focus {
+	border: 2px dashed #31808c;
+	outline: none;
+	animation: select 100ms step-end forwards;
+  }
+  
+  @keyframes select {
+	to {
+	  -webkit-user-select: text;
+	  user-select: text;
+	}
+  }
+  /*.ResponsiveText (@MaxResolution,@DesktopSize,@MobileSize) {
+	@DesktopMediaSize: (@MaxResolution*1px);
+	@MobileMediaSize: (((@MobileSize*16)/((@DesktopSize*16)/(@MaxResolution/100)))*100px);
+	font-size: @DesktopSize * 1rem;
+	@media only screen and (max-width: @DesktopMediaSize) { 
+		font-size: ((@DesktopSize * 16)/(@MaxResolution/100))*1vw;
+	}
+	@media only screen and (max-width: @MobileMediaSize){
+		font-size: @MobileSize*1rem;
+	}
+}
+
+
+
+h1 { .ResponsiveText(960,3.4,2); }
+h2 { .ResponsiveText(960,2,1.5); }*/
+
+div { max-width: 960px; margin: auto; }

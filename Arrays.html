@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+     <link rel="stylesheet" href="Arrays.css">
+    <title>Arrays</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+  CP HandBook</div>
+  <label for="btn" class="icon">
+          <span class="fa fa-bars"></span>
+        </label>
+        <input type="checkbox" id="btn">
+        <ul>
+  <li><a href="index.html">Home</a></li>
+  <li>
+            <label for="btn-1" class="show">Data Structurs</label>
+            <a href="#">Data Structurs</a>
+            <input type="checkbox" id="btn-1">
+            <ul>
+  <li><a href="Arrays.html">Arrays</a></li>
+  <li><a href="LinkedList.html">Linked Lists</a></li>
+  <li><a href="Stacks.html">Stacks</a></li>
+   <li><a href="queues.html">Queues</a></li>
+  <li><a href="Trees.html">Trees</a></li> 
+  <li><a href="Heaps.html">Heaps</a></li>
+   <li><a href="#">Graphs</a></li>
+   
+  </ul>
+  </li>
+  <li>
+            <label for="btn-2" class="show">Algorithms</label>
+            <a href="#">Algorithms</a>
+            <input type="checkbox" id="btn-2">
+            <ul>
+              <li><a href="Seive_of_eratosthenes.html">Prime</a></li>
+              <li><a href="Integer_factorization.html">Factorization</a></li>
+              <li><a href="Euclidean_algorithm.html">Euclid's</a></li>
+              <li><a href="#">Fibonacci</a></li>
+              <li><a href="#">Modular</a></li>
+              <li><a href="#">More</a></li>
+  
+  </ul>
+  </li>
+  <!-- <li><a href="To_do_list.html">To-Do List</a></li> -->
+  <li><a href="About.html">About</a></li>
+  </ul>
+  </nav>  
+<div class = "matter">
+    
+    
+        <h1><strong>Arrays</strong></h1> <br>
+        <p>An array holds a fixed number of similar elements that are stored under one name. These elements are stored in contagious memory locations. It is one of the simplest data structures. Most modern programming languages have arrays built-in by default.</p> <br>
+        <h3><strong>Declaring a One Dimensional Array</strong></h3><br>
+
+        <p>An array has to be declared before it can be used. In C, declaring an array means specifying the following:</p> <br>
+
+        <p> <strong>Data Type</strong>: This is the kind of values that the array will store. This can be characters, integers, floating points or any legal data type.</p>
+        <p><strong>Name</strong>:  The variable name used to identify the array and interact with it.</p>
+        <p><strong>Size</strong>: The size of the array, which specifies the maximum number of values that the array will store.</p>
+
+        <p><strong>Syntax Used</strong></p>
+        <br>
+        <p>An array can be declared in C by using the following syntax:</p> <br>
+
+        <pre><code>type name[size];</code></pre> <br>
+        <h3><strong>Assigning values after initialization</strong> <br>
+        </h3> <br>
+
+        <p>By default, an array is created whenever memory is available at any random location. We do not know what information that random location of memory will contain, as any other program could have used that memory previously.</p> <br>
+        <p>
+          If array elements are not initialized while creation, then accessing them directly they would result in such garbage values.
+        </p>
+        <br>
+        <p>
+          Therefore, it is always recommended to empty the elements or assign values to it if a calculation is to be performed on the array.
+        </p> <br>
+        <pre><code>int ages[10];
+    // accessing array without assigning elements first
+for(int i = 0; i < 10; i++)
+  printf("\n arr[%d] = %d", i, ages[i]);
+        </code></pre> <br>
+
+        <h3><strong>Traversing the array</strong></h3> <br>
+        <p>Inserting an element at the end of the array is easy provided the array has enough space for the new element. The index of the last element of the array is found out and the new element is inserted at the index + 1 position.</p> <br>
+
+        <h3><strong>At any other position</strong></h3> <br>
+        <p>An element can be inserted in between at any position by shifting all elements from that position to the back of the array. The element to be inserted is then inserted at the required position.</p> <br>
+        <pre><code>void insert_position(int arr[]) {
+          int i = 0, pos, num;
+          printf("Enter the number to be inserted : ");
+          scanf("%d", &num);
+          printf("Enter position at which the number is to be added :");
+          scanf("%d", &pos);
+          for (i = n-1; i>= pos; i--)
+              arr[i+1] = arr[i];
+          arr[pos] = num;
+          n = n + 1;  // increase total number of used positions
+          display_array(arr);
+      }
+      </code></pre> <br>
+      <h3><strong>Multi-Dimensional Arrays</strong></h3> <br>
+      <p>An array may have more than one dimension to represent data. These are known as multidimensional arrays. The elements in these arrays are accessed using multiple indices.</p> <br>
+      <h3><strong>Two Dimensional Array</strong></h3> <br>
+      <p>A two dimensional array can be considered as an array within an array. It can be visualised as a <strong>table</strong>, having a row and a column. Each item in the table can be accessed using 2 indices corresponding to the row and column.</p> <br>
+      <p>A 2D array is declared using 2 parameters:</p> <br>
+      <pre><code>type name[max_size_x][max_size_y]</code></pre> <br>
+      <p>The max_size_x and max_size_y are the max values each dimension can store.</p> <br>
+      <h3><strong>Three Dimensional Array</strong></h3> <br>
+      <p>A three dimensional array similarly can be visualised as a cube. Each item can be accessed using 3 indices corresponding to the 3D position.</p> <br>
+      <p>Example: Every block of a Rubik’s Cube can be represented by a three dimensional array of size 3 x 3 x 3.</p> <br>
+      <p>A 3D array is declared using 2 parameters:</p> <br>
+      <pre><code>type name[max_size_x][max_size_y][max_size_z];</code></pre><br>
+      <p>The max_size_x, max_size_y and max_size_z are the max values each dimension can store.</p> <br>
+      <h3><strong>Memory Allocation in arrays</strong></h3><br>
+      <p>Since an array stores all its data elements in consecutive memory locations, storing just the base address, that is, the address of the first element is sufficient. The address of other elements can be then calculated using the base address.</p> <br>
+      <h4><strong>For one dimensional array</strong></h4><br>
+      <p>A simple formula consisting of the size of the element and the lower bound is used.</p><br>
+      <pre><code>A[i] = base_address(A) + size_of_element(i – lower_bound)</code></pre> <br>
+      <p>The lower bound is the smallest index in the array. Similarly, an upper bound is the largest index in the array. In C programming, the lower bound value may be omitted as it is generally 0.</p><br>
+      <h4><strong>For two dimensional array</strong></h4><br>
+      <p>The elements in a two dimensional array can be stored using 2 representations and their addresses can be calculated using the respective formulae.</p><br>
+      <h4><strong>Column Major Representation</strong></h4> <br>
+      <p>In this form, the elements are stored column by column. m elements of the first column are stored in the first m locations, elements of the second column element are stored in the next m locations, and so on.</p> <br>
+      <pre><code>Address(A[I][J]) = base_address + width {number_of_rows (J – 1) + (I – 1)}</code></pre> <br>
+      <h4><strong>Row Major Formula</strong></h4><br>
+      <p>In this form, the elements are stored row by row. n elements of the first row are stored in the first n locations, elements of the second row elements are stored in the next n locations, and so on.</p><br>
+      <pre><code>Address(A[I][J]) = base_address + width {number_of_cols (I – 1) + (J – 1)}</code></pre> <br>
+      <h2><strong>Time Complexity of Operations</strong></h2> <br>
+      <p>
+       <h3><strong>Access</strong></h3> <br>
+Any array element could be accessed directly through its index. Hence the access time is constant O(1). <br> <br>
+
+<h3><strong>Search</strong></h3> <br>
+Searching for a given value through the array requires iterating through each element in the array until the element is found. This is assuming that linear search is used (which is the most basic type of search to find any element). This makes the search time O(n). <br>
+
+The other more efficient search algorithm, binary search could be used to search in O(log n) time but it requires the array to be sorted beforehand. <br> <br>
+
+<h3><strong>Insertions</strong></h3> <br>
+Inserting an element in between 2 elements in an array involves shifting all the elements to the right by 1. This means that at most all the elements have to be shifted right (insertion at the beginning of the array), hence the complexity of the insert operation in O(n). <br> <br>
+
+<h3><strong>Deletions</strong></h3> <br>
+Deleting an element in between 2 elements in an array involves shifting all the elements to the left by 1. This means that at most all the elements have to be shifted left (deletion at the beginning of the array), hence the complexity of the delete operation in O(n). <br> <br>
+
+<h3><strong>Space Required</strong></h3> <br>
+An array only takes the space used to store the elements of the data type specified. This means that for storing n elements the space required is O(n). <br>
+      </p>
+
+ 
+
+    
+</body>
+</html>

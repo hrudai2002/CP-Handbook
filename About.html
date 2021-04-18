@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hero Section Hover Effects</title>
+<link rel="stylesheet" type="text/css" href="style1.css">
+</head>
+<body>
+	<div class="container">
+		<div class="column active">
+			<div class="content">
+				<h1>1</h1>
+				<div class="box">
+					<h2>What is the use of data structures and algorithms?</h2>
+					<p>“Data structure and algorithms help in understanding the
+						nature of the problem at a deeper level and thereby a better
+						understanding of the world.”
+						</p>
+				</div>
+			</div>
+			<div class="bg bg1"></div>
+		</div>
+		<div class="column">
+			<div class="content">
+				<h1>2</h1>
+				<div class="box">
+					<h2>What is a Data Structure ? </h2>
+					<p> A data structure is a particular way of organizing data 
+						in a computer so that it can  be used effectively. Some  
+						of the data structures are stacks, arrays queues etc.
+						</p>
+				</div>
+			</div>
+			<div class="bg bg2"></div>
+		</div>
+		<div class="column">
+			<div class="content">
+				<h1>3</h1>
+				<div class="box">
+					<h2>What are Algorithms?
+					</h2>
+					<p>Algorithms  means  “a process of set of rules to be followed in
+						Calculations or other problem-solving operations”.
+						</p>
+				</div>
+			</div>
+			<div class="bg bg3"></div>
+		</div>
+		<div class="column">
+			<div class="content">
+				<h1>4</h1>
+				<div class="box">
+					<h2>Why Cp handbook ?</h2>
+					<p>we can straight forward give two reasons to learn data structure and algorithms
+
+						If you want to crack the interviews and get into the product based companies
+						If you love to solve the real-world complex problems. 
+						</p>
+				</div>
+			</div>
+			<div class="bg bg4"></div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		$(document).on('mouseover', '.container .column', function(){
+			$(this).addClass('active').siblings().removeClass('active')
+		})
+	</script>
+</body>
+</html>

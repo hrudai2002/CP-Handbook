@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+     <link rel="stylesheet" href="LinkedList.css">
+    <title>Linked List</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+  CP HandBook</div>
+  <label for="btn" class="icon">
+          <span class="fa fa-bars"></span>
+        </label>
+        <input type="checkbox" id="btn">
+        <ul>
+  <li><a href="index.html">Home</a></li>
+  <li>
+            <label for="btn-1" class="show">Data Structurs</label>
+            <a href="#">Data Structurs</a>
+            <input type="checkbox" id="btn-1">
+            <ul>
+  <li><a href="Arrays.html">Arrays</a></li>
+  <li><a href="LinkedList.html">Linked Lists</a></li>
+  <li><a href="Stacks.html">Stacks</a></li>
+   <li><a href="queues.html">Queues</a></li>
+  <li><a href="Trees.html">Trees</a></li> 
+  <li><a href="Heaps.html">Heaps</a></li>
+   <li><a href="#">Graphs</a></li>
+   
+  </ul>
+  </li>
+  <li>
+            <label for="btn-2" class="show">Algorithms</label>
+            <a href="#">Algorithms</a>
+            <input type="checkbox" id="btn-2">
+            <ul>
+              <li><a href="Seive_of_eratosthenes.html">Prime</a></li>
+              <li><a href="Integer_factorization.html">Factorization</a></li>
+              <li><a href="Euclidean_algorithm.html">Euclid's</a></li>
+              <li><a href="#">Fibonacci</a></li>
+              <li><a href="#">Modular</a></li>
+              <li><a href="#">More</a></li>
+  
+  </ul>
+  </li>
+  <!-- <li><a href="To_do_list.html">To-Do List</a></li> -->
+  <li><a href="About.html">About</a></li>
+  </ul>
+  </nav>  
+<div class = "matter">
+    
+<h1><strong>Linked Lists</strong></h1> <br>
+
+<p>A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations. The elements in a linked list are linked using pointers as shown in the below image:</p>
+<img src="Linkedlist.png" alt="">
+ <h3>Types of Linked Lists</h3> <br>
+ <p>
+   1. Single Linked Lists <br>
+   2. Doubly Linked Lists <br>
+   3. Circular Linked Lists <br>
+ </p>
+ <br>
+ <h3>Single Linked List</h3> <br>
+ <p>
+  
+    <li>A singly linked list is a concrete data structure  consisting of a sequence of nodes</li>
+    <li>Each node has a</li>
+     <pre>
+       1. Data part
+       2. Address part
+     </pre>
+  
+ </p>
+ <br> 
+ <img src="https://media.geeksforgeeks.org/wp-content/uploads/singly-linkedlist.png" alt="linked list">
+
+ <br>
+
+ <h3>Implementation</h3> <br>
+
+  <h4>Defining a node</h4> <br>
+  <p>The Node contains 2 parts, one that is the data itself and the other which references the next node in the sequence.</p>
+   <br>
+  <p>In C, the node is defined as a structure . This type of a structure is called a self-referential structure where one member of the structure points to the structure of its kind.</p>
+  <br>
+
+  <pre><code>
+       struct Node{
+         int data;
+         struct Node *next;
+       };
+  </code></pre>
+  <br>
+
+  <p>A new Node can be created with a desirable variable name</p> <br>
+  <pre><code>
+    struct Node* newNode;
+  </code></pre> <br>
+
+  <p>The data part of the node can be accessed using the arrow character</p> <br>
+  <pre>
+    <code>
+      newNode->data
+    </code>
+  </pre> <br>
+
+  <p>Similarly,the address part can be accessed using the arrow character</p> <br>
+  <pre><code>
+    newNode->next
+  </code></pre> <br>
+
+  <h5>Program for the Linked List</h5> <br>
+  <script src="https://gist.github.com/hrudai2002/e705366e34f22725d26e4aa39ec8f841.js"></script>
+  <br>
+
+
+  <h3>Doubly Linked List</h3> <br>
+  <p>Doubly linked list is a type of linked list in which each node apart from storing its data has two links. The first link points to the previous node in the list and the second link points to the next node in the list. </p>
+  <br>
+    <p> The first node of the list has its previous link pointing to NULL similarly the last node of the list has its next node pointing to NULL.</p> <br>
+<img src="https://www.etutorialspoint.com/images/ds/doubly-linked-list.png" alt="Doubly Linked List">
+<br>
+
+<h3>Implementation</h3> <br>
+<h4>Defining a node</h4> <br>
+  <p>The Node contains 3 parts, one that is the data itself and the other which references the next node in the sequence and the other which refers the previous node.</p>
+   <br>
+  <p>In C, the node is defined as a structure . This type of a structure is called a self-referential structure where one member of the structure points to the structure of its kind.</p>
+  <br>
+
+  <pre><code>
+       struct Node{
+         int data;
+         struct Node *prev;
+         struct Node *next;
+       };
+  </code></pre>
+  <br>
+
+  <p>A new Node can be created with a desirable variable name</p> <br>
+  <pre><code>
+    struct Node* newNode;
+  </code></pre> <br>
+
+  <p>The data part of the node can be accessed using the arrow character</p> <br>
+  <pre>
+    <code>
+      newNode->data
+    </code>
+  </pre> <br>
+
+  <p>Similarly,the address of the next node can be accessed using the arrow character</p> <br>
+  <pre><code>
+    newNode->next
+  </code></pre> <br>
+
+  <p>Similarly,the address of the previous node can be accessed using the arrow character</p> <br>
+  <pre><code>
+    newNode->prev
+  </code></pre> <br>
+  <h5>Program for the doubly Linked List</h5> <br>
+  <script src="https://gist.github.com/hrudai2002/4026648f273fa9d38717f8eba245545a.js"></script> <br>
+
+  <h3>Circular Linked List</h3> <br>
+  <p>A circular linked list is a sequence of elements in which every element has a link to its next element in the sequence and the last element has a link to the first element.</p> <br><p>That means circular linked list is similar to the single linked list except that the last node points to the first node in the list.</p>
+  <br>
+  <img src="data:image/png;base64,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" alt="" style = "align-items: left;">
+
+  <br>
+
+<h3>Implementation</h3> <br>
+<h4>Defining a node</h4> <br>
+  <p>The Node contains 2 parts, one that is the data itself and the other which references the next node in the sequence.</p>
+   <br>
+  <p>In C, the node is defined as a structure . This type of a structure is called a self-referential structure where one member of the structure points to the structure of its kind.</p>
+  <br>
+
+  <pre><code>
+       struct Node{
+         int data;
+         
+         struct Node *next;
+       };
+  </code></pre>
+  <br>
+
+  <p>A new Node can be created with a desirable variable name</p> <br>
+  <pre><code>
+    struct Node* newNode;
+  </code></pre> <br>
+
+  <p>The data part of the node can be accessed using the arrow character</p> <br>
+  <pre>
+    <code>
+      newNode->data
+    </code>
+  </pre> <br>
+
+  <p>Similarly,the address of the next node can be accessed using the arrow character</p> <br>
+  <pre><code>
+    newNode->next
+  </code></pre> <br>
+
+  
+  <h5>Program for the Circular Linked List</h5> <br>
+  <script src="https://gist.github.com/hrudai2002/17e9938471257ce0b4fe67f721cb7e6a.js"></script> <br>
+
+
+
+        
+    
+    
+</body>
+</html>

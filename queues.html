@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+     <link rel="stylesheet" href="LinkedList.css">
+    <title>Arrays</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+  CP HandBook</div>
+  <label for="btn" class="icon">
+          <span class="fa fa-bars"></span>
+        </label>
+        <input type="checkbox" id="btn">
+        <ul>
+  <li><a href="index.html">Home</a></li>
+  <li>
+            <label for="btn-1" class="show">Data Structurs</label>
+            <a href="#">Data Structurs</a>
+            <input type="checkbox" id="btn-1">
+            <ul>
+  <li><a href="Arrays.html">Arrays</a></li>
+  <li><a href="LinkedList.html">Linked Lists</a></li>
+  <li><a href="Stacks.html">Stacks</a></li>
+   <li><a href="queues.html">Queues</a></li>
+  <li><a href="Trees.html">Trees</a></li> 
+  <li><a href="Heaps.html">Heaps</a></li>
+   <li><a href="#">Graphs</a></li>
+   
+  </ul>
+  </li>
+  <li>
+            <label for="btn-2" class="show">Algorithms</label>
+            <a href="#">Algorithms</a>
+            <input type="checkbox" id="btn-2">
+            <ul>
+              <li><a href="Seive_of_eratosthenes.html">Prime</a></li>
+              <li><a href="Integer_factorization.html">Factorization</a></li>
+              <li><a href="Euclidean_algorithm.html">Euclid's</a></li>
+              <li><a href="#">Fibonacci</a></li>
+              <li><a href="#">Modular</a></li>
+              <li><a href="#">More</a></li>
+  
+  </ul>
+  </li>
+  <!-- <li><a href="To_do_list.html">To-Do List</a></li> -->
+  <li><a href="About.html">About</a></li>
+  </ul>
+  </nav>  
+<div class = "matter">
+    
+<h1><strong>Queue</strong></h1> <br>
+
+<p>A Queue is a linear structure which follows a particular order in which the operations are performed. The order is First In First Out (FIFO). A good example of a queue is any queue of consumers for a resource where the consumer that came first is served first. The difference between stacks and queues is in removing. In a stack we remove the item the most recently added; in a queue, we remove the item the least recently added.</p>
+<!-- <img src="Linkedlist.png" alt=""> -->
+<br>
+ <p>Like Stack, Queue is a linear structure which follows a particular order in which the operations are performed. The order is First In First Out (FIFO).  A good example of queue is any queue of consumers for a resource where the consumer that came first is served first. 
+    The difference between stacks and queues is in removing. In a stack we remove the item the most recently added; in a queue, we remove the item the least recently added.</p><br>
+
+    <h3>Operations on Queue: </h3><br>
+    Mainly the following <strong>four basic</strong> operations are performed on queue:<br><br>
+    Enqueue: Adds an item to the queue. If the queue is full, then it is said to be an Overflow condition. <br><br>
+    Dequeue: Removes an item from the queue. The items are popped in the same order in which they are pushed. If the queue is empty, then it is said to be an Underflow condition. <br><br>
+    Front: Get the front item from queue. <br><br>
+    Rear: Get the last item from queue. <br><br>
+
+    <p>
+        <h3>Applications of Queue: </h3><br>
+Queue is used when things don’t have to be processed immediatly, but have to be processed in First InFirst Out order like Breadth First Search. This property of Queue makes it also useful in following kind of scenarios.<br><br>
+1) When a resource is shared among multiple consumers. Examples include CPU scheduling, Disk Scheduling. <br><br>
+2) When data is transferred asynchronously (data not necessarily received at same rate as sent) between two processes. Examples include IO Buffers, pipes, file IO, etc.
+See this for more detailed applications of Queue and Stack.
+    </p>
+<br><br>
+    <p>
+        <h3>Array implementation Of Queue</h3><br><br>
+For implementing queue, we need to keep track of two indices, front and rear. We enqueue an item at the rear and dequeue an item from the front. If we simply increment front and rear indices, then there may be problems, the front may reach the end of the array. The solution to this problem is to increase front and rear in circular manner 
+    </p>
+
+    <pre><code>
+    // CPP program for array
+    // implementation of queue
+    #include <bits/stdc++.h>
+    using namespace std;
+
+    // A structure to represent a queue
+    class Queue {
+    public:
+        int front, rear, size;
+        unsigned capacity;
+        int* array;
+    };
+
+    // function to create a queue
+    // of given capacity.
+    // It initializes size of queue as 0
+    Queue* createQueue(unsigned capacity)
+    {
+        Queue* queue = new Queue();
+        queue->capacity = capacity;
+        queue->front = queue->size = 0;
+
+        // This is important, see the enqueue
+        queue->rear = capacity - 1;
+        queue->array = new int[queue->capacity];
+        return queue;
+    }
+
+    // Queue is full when size
+    // becomes equal to the capacity
+    int isFull(Queue* queue)
+    {
+        return (queue->size == queue->capacity);
+    }
+
+    // Queue is empty when size is 0
+    int isEmpty(Queue* queue)
+    {
+        return (queue->size == 0);
+    }
+
+    // Function to add an item to the queue.
+    // It changes rear and size
+    void enqueue(Queue* queue, int item)
+    {
+        if (isFull(queue))
+            return;
+        queue->rear = (queue->rear + 1)
+                    % queue->capacity;
+        queue->array[queue->rear] = item;
+        queue->size = queue->size + 1;
+        cout << item << " enqueued to queue\n";
+    }
+
+    // Function to remove an item from queue.
+    // It changes front and size
+    int dequeue(Queue* queue)
+    {
+        if (isEmpty(queue))
+            return INT_MIN;
+        int item = queue->array[queue->front];
+        queue->front = (queue->front + 1)
+                    % queue->capacity;
+        queue->size = queue->size - 1;
+        return item;
+    }
+
+    // Function to get front of queue
+    int front(Queue* queue)
+    {
+        if (isEmpty(queue))
+            return INT_MIN;
+        return queue->array[queue->front];
+    }
+
+    // Function to get rear of queue
+    int rear(Queue* queue)
+    {
+        if (isEmpty(queue))
+            return INT_MIN;
+        return queue->array[queue->rear];
+    }
+
+    // Driver code
+    int main()
+    {
+        Queue* queue = createQueue(1000);
+
+        enqueue(queue, 10);
+        enqueue(queue, 20);
+        enqueue(queue, 30);
+        enqueue(queue, 40);
+
+        cout << dequeue(queue)
+            << " dequeued from queue\n";
+
+        cout << "Front item is "
+            << front(queue) << endl;
+        cout << "Rear item is "
+            << rear(queue) << endl;
+
+        return 0;
+    }
+
+    // This code is contributed by rathbhupendra
+
+    </code></pre>
+
+
+
+
+        
+    
+    
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+     <link rel="stylesheet" href="LinkedList.css">
+    <title>Stacks</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+  CP HandBook</div>
+  <label for="btn" class="icon">
+          <span class="fa fa-bars"></span>
+        </label>
+        <input type="checkbox" id="btn">
+        <ul>
+  <li><a href="index.html">Home</a></li>
+  <li>
+            <label for="btn-1" class="show">Data Structurs</label>
+            <a href="#">Data Structurs</a>
+            <input type="checkbox" id="btn-1">
+            <ul>
+  <li><a href="Arrays.html">Arrays</a></li>
+  <li><a href="LinkedList.html">Linked Lists</a></li>
+  <li><a href="Stacks.html">Stacks</a></li>
+   <li><a href="queues.html">Queues</a></li>
+  <li><a href="Trees.html">Trees</a></li> 
+  <li><a href="Heaps.html">Heaps</a></li>
+   <li><a href="#">Graphs</a></li>
+   
+  </ul>
+  </li>
+  <li>
+            <label for="btn-2" class="show">Algorithms</label>
+            <a href="#">Algorithms</a>
+            <input type="checkbox" id="btn-2">
+            <ul>
+              <li><a href="Seive_of_eratosthenes.html">Prime</a></li>
+              <li><a href="Integer_factorization.html">Factorization</a></li>
+              <li><a href="Euclidean_algorithm.html">Euclid's</a></li>
+              <li><a href="#">Fibonacci</a></li>
+              <li><a href="#">Modular</a></li>
+              <li><a href="#">More</a></li>
+  
+  </ul>
+  </li>
+  <!-- <li><a href="To_do_list.html">To-Do List</a></li> -->
+  <li><a href="About.html">About</a></li>
+  </ul>
+  </nav>  
+<div class = "matter">
+    
+<h1><strong>Stacks</strong></h1> <br>
+
+<p>Stack is a linear data structure which follows a particular order in which the operations are performed. The order may be LIFO(Last In First Out) or FILO(First In Last Out).</p>
+<!-- <img src="Linkedlist.png" alt=""> -->
+<br><br>
+ <p>Stacks are a type of container adaptors with LIFO(Last In First Out) type of working, where a new element is added at one end and (top) an element is removed from that end only.  Stack uses an encapsulated object of either vector or deque (by default) or list (sequential container class) as its underlying container, providing a specific set of member functions to access its elements.</p>
+ <br>
+ <br>
+ <h3><strong>The functions associated with stack are: </strong></h3><br>
+ <!-- <p><br><br> -->
+    empty() – Returns whether the stack is empty – Time Complexity : O(1) <br><br>
+    size() – Returns the size of the stack – Time Complexity : O(1) <br><br>
+    top() – Returns a reference to the top most element of the stack – Time Complexity : O(1) <br><br>
+    push(g) – Adds the element ‘g’ at the top of the stack – Time Complexity : O(1) <br><br>
+    pop() – Deletes the top most element of the stack – Time Complexity : O(1) </p><br><br>
+
+    <pre><code>
+    // CPP program to demonstrate working of STL stack
+    #include <bits/stdc++.h>
+    using namespace std;
+
+    void showstack(stack <int> s)
+    {
+        while (!s.empty())
+        {
+            cout << '\t' << s.top();
+            s.pop();
+        }
+        cout << '\n';
+    }
+
+    int main ()
+    {
+        stack <int> s;
+        s.push(10);
+        s.push(30);
+        s.push(20);
+        s.push(5);
+        s.push(1);
+
+        cout << "The stack is : ";
+        showstack(s);
+
+        cout << "\ns.size() : " << s.size();
+        cout << "\ns.top() : " << s.top();
+
+
+        cout << "\ns.pop() : ";
+        s.pop();
+        showstack(s);
+
+        return 0;
+    }
+    </code></pre>
+    
+</body>
+</html>

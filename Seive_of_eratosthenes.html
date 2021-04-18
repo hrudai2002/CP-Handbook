@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+     <link rel="stylesheet" href="algorithms.css">
+    <title>Arrays</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+  CP HandBook</div>
+  <label for="btn" class="icon">
+          <span class="fa fa-bars"></span>
+        </label>
+        <input type="checkbox" id="btn">
+        <ul>
+  <li><a href="index.html">Home</a></li>
+  <li>
+            <label for="btn-1" class="show">Data Structures</label>
+            <a href="#">Data Structures</a>
+            <input type="checkbox" id="btn-1">
+            <ul>
+  <li><a href="Arrays.html">Arrays</a></li>
+  <li><a href="LinkedList.html">Linked Lists</a></li>
+  <li><a href="Stacks.html">Stacks</a></li>
+   <li><a href="queues.html">Queues</a></li>
+  <li><a href="Trees.html">Trees</a></li> 
+  <li><a href="Heaps.html">Heaps</a></li>
+   <li><a href="#">Graphs</a></li>
+   
+  </ul>
+  </li>
+  <li>
+            <label for="btn-2" class="show">Algorithms</label>
+            <a href="#">Algorithms</a>
+            <input type="checkbox" id="btn-2">
+            <ul>
+              <li><a href="Seive_of_eratosthenes.html">Prime</a></li>
+              <li><a href="Integer_factorization.html">Factorization</a></li>
+              <li><a href="Euclidean_algorithm.html">Euclid's</a></li>
+              <li><a href="#">Fibonacci</a></li>
+              <li><a href="#">Modular</a></li>
+  
+  </ul>
+  </li>
+  <!-- <li><a href="To_do_list.html">To-Do List</a></li> -->
+  <li><a href="#">About</a></li>
+  </ul>
+  </nav>  
+<div class = "matter">
+    <h1>Seive of eratosthenes</h1><br>
+    <p>
+      Sieve of Eratosthenes is an algorithm for finding all the prime numbers in a segment [1;n] using O(nloglogn) operations.
+
+The algorithm is very simple: at the beginning we write down all numbers between 2 and n. <br><br>We mark all proper multiples of 2 (since 2 is the smallest prime number) as composite. A proper multiple of a number x, is a number greater than x and divisible by x. Then we find the next number that hasn't been marked as composite, in this case it is 3. <br><br>Which means 3 is prime, and we mark all proper multiples of 3 as composite. The next unmarked number is 5, which is the next prime number, and we mark all proper multiples of it. And we continue this procedure until we processed all numbers in the row.
+
+In the following image you can see a visualization of the algorithm for computing all prime numbers in the range [1;16].<br><br> It can be seen, that quite often we mark numbers as composite multiple times.
+    </p><br><br>
+    <h2>Asymptotic analysis</h2><br><br>
+    <p>
+      Let's prove that algorithm's running time is O(nloglogn). The algorithm will perform np operations for every prime p≤n the inner loop. Hence, we need to evaluate the next expression:
+
+∑p≤n,p primenp=n⋅∑p≤n,p prime1p.<br><br>
+Let's recall two known facts.
+
+The number of prime numbers less than or equal to n is approximately nlnn.
+The k-th prime number approximately equals klnk (that follows immediately from the previous fact).
+Thus we can write down the sum in the following way:
+
+∑p≤n,p prime1p≈12+∑k=2nlnn1klnk.<br><br>
+Here we extracted the first prime number 2 from the sum, because k=1 in approximation klnk is 0 and causes a division by zero.
+<br><br>
+Now, let's evaluate this sum using the integral of a same function over k from 2 to nlnn (we can make such approximation because, in fact, the sum is related to the integral as its approximation using the rectangle method):
+
+∑k=2nlnn1klnk≈∫nlnn21klnkdk.
+The antiderivative for the integrand is lnlnk. Using a substitution and removing terms of lower order, we'll get the result:
+
+∫nlnn21klnkdk=lnlnnlnn−lnln2=ln(lnn−lnlnn)−lnln2≈lnlnn.
+Now, returning to the original sum, we'll get its approximate evaluation:
+
+∑p≤n,p is primenp≈nlnlnn+o(n).
+You can find a more strict proof (that gives more precise evaluation which is accurate within constant multipliers) in the book authored by Hardy & Wright "An Introduction to the Theory of Numbers"
+    </p><br>
+    <pre><code>
+      int n;
+      vector<char> is_prime(n+1, true);
+      is_prime[0] = is_prime[1] = false;
+      for (int i = 2; i <= n; i++) {
+          if (is_prime[i] && (long long)i * i <= n) {
+              for (int j = i * i; j <= n; j += i)
+                  is_prime[j] = false;
+          }
+      }
+    </code></pre><br>
+    <h3>Time complexity :-  O(n(log(log(n)))</h3>
+    
+    
+</body>
+</html>

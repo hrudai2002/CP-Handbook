@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+     <link rel="stylesheet" href="LinkedList.css">
+    <title>Trees</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+  CP HandBook</div>
+  <label for="btn" class="icon">
+          <span class="fa fa-bars"></span>
+        </label>
+        <input type="checkbox" id="btn">
+        <ul>
+  <li><a href="index.html">Home</a></li>
+  <li>
+            <label for="btn-1" class="show">Data Structurs</label>
+            <a href="#">Data Structurs</a>
+            <input type="checkbox" id="btn-1">
+            <ul>
+  <li><a href="Arrays.html">Arrays</a></li>
+  <li><a href="LinkedList.html">Linked Lists</a></li>
+  <li><a href="Stacks.html">Stacks</a></li>
+   <li><a href="queues.html">Queues</a></li>
+  <li><a href="Trees.html">Trees</a></li> 
+  <li><a href="Heaps.html">Heaps</a></li>
+   <li><a href="#">Graphs</a></li>
+   
+  </ul>
+  </li>
+  <li>
+            <label for="btn-2" class="show">Algorithms</label>
+            <a href="#">Algorithms</a>
+            <input type="checkbox" id="btn-2">
+            <ul>
+              <li><a href="Seive_of_eratosthenes.html">Prime</a></li>
+              <li><a href="Integer_factorization.html">Factorization</a></li>
+              <li><a href="Euclidean_algorithm.html">Euclid's</a></li>
+              <li><a href="#">Fibonacci</a></li>
+              <li><a href="#">Modular</a></li>
+              <li><a href="#">More</a></li>
+  
+  </ul>
+  </li>
+  <!-- <li><a href="To_do_list.html">To-Do List</a></li> -->
+  <li><a href="About.html">About</a></li>
+  </ul>
+  </nav>  
+<div class = "matter">
+    
+<h1><strong>Trees</strong></h1> <br>
+
+<!-- <p>A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations. The elements in a linked list are linked using pointers as shown in the below image:</p> -->
+<!-- <img src="Linkedlist.png" alt=""> -->
+ <!-- <p>Still more to come ......</p> -->
+ <p>
+    Tree represents the nodes connected by edges. We will discuss binary tree or binary search tree specifically.
+
+    Binary Tree is a special datastructure used for data storage purposes. A binary tree has a special condition that each node can have a maximum of two children. A binary tree has the benefits of both an ordered array and a linked list as search is as quick as in a sorted array and insertion or deletion operation are as fast as in linked list.
+ </p><br><br>
+ <p>
+    <strong>Important Terms</strong><br><br>
+    Following are the important terms with respect to tree.<br><br>
+    
+    Path − Path refers to the sequence of nodes along the edges of a tree.<br><br>
+    
+    Root − The node at the top of the tree is called root. There is only one root per tree and one path from the root node to any node.<br><br>
+    
+    Parent − Any node except the root node has one edge upward to a node called parent.<br><br>
+    
+    Child − The node below a given node connected by its edge downward is called its child node.<br><br>
+    
+    Leaf − The node which does not have any child node is called the leaf node.<br><br>
+    
+    Subtree − Subtree represents the descendants of a node.<br><br>
+    
+    Visiting − Visiting refers to checking the value of a node when control is on the node.<br><br>
+    
+    Traversing − Traversing means passing through nodes in a specific order.<br><br>
+    
+    Levels − Level of a node represents the generation of a node. If the root node is at level 0, then its next child node is at level 1, its grandchild is at level 2, and so on.<br><br>
+    
+    keys − Key represents a value of a node based on which a search operation is to be carried out for a node.<br><br>
+ </p>
+
+ <h2>Binary search tree</h2><br>
+ <p>
+    Binary Search Tree is a node-based binary tree data structure which has the following properties:  <br><br>
+
+    The left subtree of a node contains only nodes with keys lesser than the node’s key.<br><br>
+    The right subtree of a node contains only nodes with keys greater than the node’s key.<br><br>
+    The left and right subtree each must also be a binary search tree. <br><br>
+    There must be no duplicate nodes.<br>
+ </p>
+<br>
+<img src="data:image/png;base64,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" style="padding-left: 250px;"> <br> <br>
+
+<h4>Program for binary search tree</h4> <br>
+
+<pre><code>
+    // C++ program to demonstrate insertion
+    // in a BST recursively.
+    #include <iostream>
+    using namespace std;
+
+    class BST
+    {
+        int data;
+        BST *left, *right;
+
+    public:
+        // Default constructor.
+        BST();
+
+        // Parameterized constructor.
+        BST(int);
+
+        // Insert function.
+        BST* Insert(BST*, int);
+
+        // Inorder traversal.
+        void Inorder(BST*);
+    };
+
+    // Default Constructor definition.
+    BST ::BST()
+        : data(0)
+        , left(NULL)
+        , right(NULL)
+    {
+    }
+
+    // Parameterized Constructor definition.
+    BST ::BST(int value)
+    {
+        data = value;
+        left = right = NULL;
+    }
+
+    // Insert function definition.
+    BST* BST ::Insert(BST* root, int value)
+    {
+        if (!root)
+        {
+            // Insert the first node, if root is NULL.
+            return new BST(value);
+        }
+
+        // Insert data.
+        if (value > root->data)
+        {
+            // Insert right node data, if the 'value'
+            // to be inserted is greater than 'root' node data.
+
+            // Process right nodes.
+            root->right = Insert(root->right, value);
+        }
+        else
+        {
+            // Insert left node data, if the 'value'
+            // to be inserted is greater than 'root' node data.
+
+            // Process left nodes.
+            root->left = Insert(root->left, value);
+        }
+
+        // Return 'root' node, after insertion.
+        return root;
+    }
+
+    // Inorder traversal function.
+    // This gives data in sorted order.
+    void BST ::Inorder(BST* root)
+    {
+        if (!root) {
+            return;
+        }
+        Inorder(root->left);
+        cout << root->data << endl;
+        Inorder(root->right);
+    }
+
+    // Driver code
+    int main()
+    {
+        BST b, *root = NULL;
+        root = b.Insert(root, 50);
+        b.Insert(root, 30);
+        b.Insert(root, 20);
+        b.Insert(root, 40);
+        b.Insert(root, 70);
+        b.Insert(root, 60);
+        b.Insert(root, 80);
+
+        b.Inorder(root);
+        return 0;
+    }
+
+</code></pre>
+<br><br>
+<h2>Types of trees</h2><br>
+<strong>1.General Tree</strong><br>
+<strong>2.Binary Tree</strong><br>
+<strong>3.Binary Search Tree</strong><br>
+<strong>4.AVL Tree</strong><br>
+<strong>5.Red-Black Tree</strong><br>
+<strong>6.N-ary Tree</strong><br>
+
+    
+    
+</body>
+</html>
